@@ -16,97 +16,139 @@
     <link href="product.css" rel="stylesheet">
   </head>
 
-  <body style="background-color: #323D46;">
+  <body style="background-color: #323D46; margin: 0; padding: 0;">
     <nav class="navbar navbar-expand-lg navbar-light bg-dark justify-content-center">
       <div class="navbar-brand">
         <img src="adjustment.png" style="height: 1.25em;margin-top: -12px; color: white;"><span class="display-6" style="font-size:1.5em; color: white;"> ETF Overlap</span>
       </div>
     </nav>
 
-    <div class="container p-0" style="max-width: 100%;">
-      <!--Row of the ETF form and the space for the 2 fetched EFTs from input tickers -->
-      <div class="row mt-4">
-        <div class="col-sm">
-          <div class="px-4 py-4 text-center card h-100 border-0" style="background-color: #34495E; margin-right: 5em; margin-left: 5em;">
-            <h1 class="display-5" style="color: white;">ETF Overlap Calculator</h1>
-            <span class="display-6 m-2" style="font-size:1em; color: white;">Insert two tickers/ISIN of 2 ETFs to find their overlap and other metrics</span>
-            <form>
-              <div class="row">
-                <div class="col">
-                  <input type="text" class="form-control" placeholder="First ETF">
-                </div>
-                <div class="col">
-                  <input type="text" class="form-control" placeholder="Second ETF">
-                </div>
-              </div>
-              <div class="row mt-2">
-                <div class="col">
-                  <button type="submit" class="btn w-100" style="background-color: #EB984E;">Go</button>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-        <div class="col-sm" style="display: grid; grid-auto-rows: 1fr 1fr;">
-          <div class="text-center h-100 border-0" style="background-color: #323D46; margin-right: 5em; margin-left: 5em; ">
-            <div class="container p-0" style="width: 100%; height: 100%;">
-              <div class="column" style="height: 100%;">
-                <div class="row-sm-6 h-50 pb-1 align-items-center">
-                    <div class="card h-100 d-flex" style="background-color: #34495E; border: 0;">
-                      <div class="card-body align-items-center d-flex justify-content-center text-white">
-                        ETF 1
-                      </div>
-                    </div>
-                </div>
-                <div class="row-sm-6 h-50 pt-1">
-                  <div class="card h-100 d-flex" style="background-color: #34495E; border: 0;">
-                    <div class="card-body align-items-center d-flex justify-content-center text-white">
-                      ETF 2
-                    </div>
+    <div class="container-fluid px-4 py-4">
+      <!--Row for the Form and ETFs extracted from the Form tickers-->
+      <div class="row gx-5 gy-5">
+        <div class="col">
+          <div class="card text-center">
+            <div class="card-body">
+              <h3 class="display-5 card-title">ETF Overlap Calculator</h5>
+              <p class="card-text">Insert two tickers/ISIN of 2 ETFs to find their overlap and other metrics.</p>
+              <form>
+                <div class="row">
+                  <div class="col">
+                    <input type="text" class="form-control" placeholder="First ETF">
+                  </div>
+                  <div class="col">
+                    <input type="text" class="form-control" placeholder="Second ETF">
                   </div>
                 </div>
+                <div class="row mt-2">
+                  <div class="col">
+                    <button onclick="find_etf_name('SPP8')" type="button" class="btn w-100" style="background-color: #EB984E;" >Go</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <!--Resulting ETFs from the form-->
+        <div class="col">
+          <div class="row row-cols-1 row-cols-md-1 h-100">
+            <div class="col" style="padding-bottom: 0.125em;">
+              <div class="card h-100">
+                <div class="card-body">
+                  <h5 class="card-title">ETF1</h5>
+                  <p class="card-text">General Information about ETF 1.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col" style="padding-top: 0.125em;">
+              <div class="card h-100">
+                <div class="card-body">
+                  <h5 class="card-title">ETF2</h5>
+                  <p class="card-text">General Information about ETF 2.</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-      <!--Row for metrics -->
-      <div class="container p-0" style="max-width: 100%;">
-        <div class="row row-eq-height my-4">
-          <div class="col-sm">
-            <div class="px-4 py-4 text-center card h-100 border-0 text-white" style="background-color: #34495E; margin-right: 5em; margin-left: 5em;">
-              Absolute Overlap
-            </div>    
+
+    <!--Row for metrics -->
+    <div class="container-fluid px-4 py-4">
+      <!--Row for the Form and ETFs extracted from the Form tickers-->
+      <div class="row gx-5 gy-5">
+        <div class="col-md-3">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title">Number of Common Holdings</h5>
+              <p class="card-text">General Information about ETF 1.</p>
+            </div>
           </div>
-          <div class="col-sm">
-            <div class="px-4 py-4 text-center card h-100 border-0 text-white" style="background-color: #34495E; margin-right: 5em; margin-left: 5em;">
-              Porcentual Overlap
+        </div>
+        <div class="col-md-3">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title">Porcentual Overlap</h5>
+              <p class="card-text">General Information about ETF 1.</p>
+            </div>
+          </div>
+        </div>
+        <!--Resulting ETFs from the form-->
+        <div class="col-md-6">
+          <div class="row row-cols-1 row-cols-md-1 h-100">
+            <div class="col">
+              <div class="card h-100 ratio" style="--bs-aspect-ratio: 25%;">
+                <div class="card-body">
+                  <h5 class="card-title">Sector Overlap</h5>
+                  <p class="card-text">General Information about ETF 1.</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    
-
-
-
-
-
-
-
-
-    <footer class="container py-5">
-    
-
-
-    </footer>
-
+    <!--Second row for -->
+    <div class="container-fluid px-4 py-4">
+      <!--Row for the Form and ETFs extracted from the Form tickers-->
+      <div class="row gx-5 gy-5">
+        <div class="col-md-3">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title">Number of Common Holdings</h5>
+              <p class="card-text">General Information about ETF 1.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title">Porcentual Overlap</h5>
+              <p class="card-text">General Information about ETF 1.</p>
+            </div>
+          </div>
+        </div>
+        <!--Resulting ETFs from the form-->
+        <div class="col-md-6">
+          <div class="row row-cols-1 row-cols-md-1 h-100">
+            <div class="col">
+              <div class="card h-100 ratio" style="--bs-aspect-ratio: 25%;">
+                <div class="card-body">
+                  <h5 class="card-title">Country Overlap</h5>
+                  <p class="card-text">General Information about ETF 1.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="processing.js"></script>
   </body>
 </html>
